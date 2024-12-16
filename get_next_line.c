@@ -6,7 +6,7 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 10:16:23 by jweber            #+#    #+#             */
-/*   Updated: 2024/12/16 12:48:13 by jweber           ###   ########.fr       */
+/*   Updated: 2024/12/16 16:46:07 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,3 +131,39 @@ void	*add_node_change_buff(t_list **plst, char *buff, int *check_eol)
 	change_buff(buff, i);
 	return (str);
 }
+
+/*
+#include <fcntl.h>
+#include <stdio.h>
+#include "get_next_line.h"
+
+int	main(int argc, char **argv)
+{
+	int		fd;
+	char	*line;
+
+	if (argc == 1)
+		fd = 0;
+	else if (argc == 2)
+	{
+		fd = open(argv[1], O_RDONLY);
+		if (fd < 0)
+		{
+			printf("could not open file\n");
+			return (1);
+		}
+	}
+	else
+	{
+		printf("wrong usage \n");
+		return (1);
+	}
+	line = get_next_line(fd);
+	free(line);
+	while (line != NULL)
+	{
+		line = get_next_line(fd);
+		free(line);
+	}
+}
+*/

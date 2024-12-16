@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 10:16:48 by jweber            #+#    #+#             */
-/*   Updated: 2024/12/16 16:46:13 by jweber           ###   ########.fr       */
+/*   Updated: 2024/12/16 16:46:24 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -29,13 +29,13 @@ typedef struct s_list
 }				t_list;
 
 char	*get_next_line(int fd);
-void	*while_read(int fd, t_list **plst, char *buff, int check_eol);
-void	buff_clear(char *buff);
+void	*whil_read(int fd, t_list **pl, char (*bu)[BUFFER_SIZE + 1], int c_eol);
+void	buff_clear(int fd, char (*buff)[BUFFER_SIZE + 1]);
 void	*lst_clear(t_list **plst);
-void	*add_node_change_buff(t_list **plst, char *buff, int *check_eol);
+void	*add_buff(int fd, t_list **pl, char (*bu)[BUFFER_SIZE + 1], int *c_eol);
 void	*new_node(t_list **plst, char *str, int len);
-void	change_buff(char *buff, int index);
+void	change_buff(int fd, char (*buff)[BUFFER_SIZE + 1], int index);
 void	*get_string(t_list **plst);
-char	*in_else(int fd, t_list **plst, char *buff, int check_eol);
+char	*in_els(int fd, t_list **plst, char (*buf)[BUFFER_SIZE + 1], int c_eol);
 
 #endif
