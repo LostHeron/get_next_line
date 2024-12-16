@@ -38,4 +38,36 @@ int	main(int argc, char **argv)
 	line = get_next_line(fd);
 	printf("-----------  line (main) = '%s'\n", line);
 	free(line);
+	line = get_next_line(fd);
+	printf("-----------  line (main) = '%s'\n", line);
+	free(line);
+	close(fd);
+	line = get_next_line(fd);
+	printf("-----------  line (main) = '%s'\n", line);
+	free(line);
+	if (argc == 1)
+		fd = 0;
+	else if (argc == 2)
+	{
+		fd = open(argv[1], O_RDONLY);
+		if (fd < 0)
+		{
+			printf("could not open file\n");
+			return (1);
+		}
+	}
+	else
+	{
+		printf("wrong usage \n");
+		return (1);
+	}
+	line = get_next_line(fd);
+	printf("---------la --  line (main) = '%s'\n", line);
+	free(line);
+	while (line != NULL)
+	{
+		line = get_next_line(fd);
+		printf("-----------  line (main) = '%s'\n", line);
+		free(line);
+	}
 }
