@@ -40,6 +40,7 @@ char	*get_string(t_list **plst)
 	return (res);
 }
 
+/*
 void	lst_print(t_list *lst)
 {
 	int	i;
@@ -52,6 +53,7 @@ void	lst_print(t_list *lst)
 		lst = (*lst).next;
 	}
 }
+*/
 
 void	*lst_clear(t_list **plst)
 {
@@ -79,8 +81,9 @@ char	*get_string_iter(int fd, t_list **plst, char *buff, int check_eol)
 	while (nb_read == BUFFER_SIZE && check_eol == 0)
 	{
 		nb_read = read(fd, buff, BUFFER_SIZE);
-		if (nb_read <= 0)
-			return (NULL);
+		printf("nb_read = %i\n", nb_read);
+		if (nb_read < 0)
+			return (lst_clear(plst));
 		if (add_node_change_buff(plst, buff, &check_eol) == NULL)
 			return (NULL);
 	}
