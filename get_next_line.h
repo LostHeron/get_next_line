@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
@@ -30,11 +29,11 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-char	*get_next_line(int	fd);
+char	*get_next_line(int fd);
 void	lst_print(t_list *lst);
 char	*get_string(t_list **plst);
 void	*lst_clear(t_list **plst);
-char	*get_string_iter(int fd, t_list **plst, char *buff);
+char	*get_string_iter(int fd, t_list **plst, char *buff, int check_eol);
 char	*add_node_change_buff(t_list **plst, char *buff, int *check_eol);
 void	*new_node(t_list **plst, char *content, int len_content);
 void	change_buff(char *buff, int i);
