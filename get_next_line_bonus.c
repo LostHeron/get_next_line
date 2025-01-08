@@ -61,7 +61,7 @@ void	*whil_read(int fd, t_list **pl, char (*bu)[BUFFER_SIZE + 1], int c_eol)
 	int	nb_read;
 
 	nb_read = BUFFER_SIZE;
-	while (nb_read == BUFFER_SIZE && c_eol == 0)
+	while (nb_read > 0 && c_eol == 0)
 	{
 		nb_read = read(fd, bu[fd], BUFFER_SIZE);
 		if (nb_read < 0)

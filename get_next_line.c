@@ -61,7 +61,7 @@ void	*while_read(int fd, t_list **plst, char *buff, int check_eol)
 	int	nb_read;
 
 	nb_read = BUFFER_SIZE;
-	while (nb_read == BUFFER_SIZE && check_eol == 0)
+	while (nb_read > 0 && check_eol == 0)
 	{
 		nb_read = read(fd, buff, BUFFER_SIZE);
 		if (nb_read < 0)
